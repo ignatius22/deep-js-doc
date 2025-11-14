@@ -54,36 +54,23 @@ export default function TableOfContents() {
 
   return (
     <nav className="sticky top-24 hidden lg:block">
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-          <svg
-            className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h7"
-            />
-          </svg>
-          Table of Contents
+      <div className="space-y-1">
+        <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 px-3">
+          On this page
         </h2>
 
-        <ul className="space-y-2">
+        <ul className="space-y-1 text-sm border-l-2 border-gray-200 dark:border-gray-800">
           {headings.map((heading) => (
             <li
               key={heading.id}
-              style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
+              style={{ paddingLeft: `${(heading.level - 2) * 16 + 12}px` }}
             >
               <button
                 onClick={() => scrollToHeading(heading.id)}
-                className={`text-left text-sm w-full py-1 px-2 rounded transition-all ${
+                className={`text-left w-full py-1.5 transition-all relative ${
                   activeId === heading.id
-                    ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-semibold"
-                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                    ? "text-emerald-600 dark:text-emerald-400 font-medium before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-emerald-600 dark:before:bg-emerald-400 before:-ml-[2px]"
+                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
                 }`}
               >
                 {heading.text}

@@ -34,26 +34,27 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
   };
 
   return (
-    <div className="relative group">
+    <div className="relative group my-6 rounded-xl overflow-hidden border border-gray-800 dark:border-gray-900 bg-gray-950 dark:bg-black">
+      {/* Copy button */}
       <button
         onClick={handleCopy}
-        className="absolute right-2 top-2 px-3 py-1.5 bg-gray-700 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1.5 z-10"
+        className="absolute right-3 top-3 px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1.5 z-10 font-medium"
         aria-label="Copy code"
       >
         {copied ? (
           <>
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
               <path
                 fillRule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clipRule="evenodd"
               />
             </svg>
-            Copied!
+            Copied
           </>
         ) : (
           <>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -65,7 +66,11 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
           </>
         )}
       </button>
-      <pre className={className}>{children}</pre>
+
+      {/* Code block with proper padding */}
+      <pre className={`${className} !my-0 !p-6 !bg-transparent !border-0 text-[15px] leading-relaxed overflow-x-auto`}>
+        {children}
+      </pre>
     </div>
   );
 }
