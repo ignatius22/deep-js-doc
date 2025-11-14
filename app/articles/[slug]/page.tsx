@@ -149,21 +149,78 @@ export default async function ArticlePage({
             {/* Article content */}
             <article
               className="prose prose-lg dark:prose-invert max-w-none
-              prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed
-              prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-              prose-strong:text-gray-900 dark:prose-strong:text-white
-              prose-code:text-emerald-700 dark:prose-code:text-emerald-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800
-              prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-medium
+
+              /* Headings - Better hierarchy and spacing */
+              prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight prose-headings:scroll-mt-20
+              prose-h1:text-4xl prose-h1:mb-8 prose-h1:leading-tight
+              prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200 dark:prose-h2:border-gray-800
+              prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4 prose-h3:leading-snug
+              prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3
+
+              /* Paragraphs - Better readability */
+              prose-p:text-[17px] prose-p:text-gray-700 dark:prose-p:text-gray-300
+              prose-p:leading-[1.8] prose-p:mb-6 prose-p:mt-0
+
+              /* Links - Clear and accessible */
+              prose-a:text-emerald-600 dark:prose-a:text-emerald-400
+              prose-a:no-underline hover:prose-a:underline
+              prose-a:font-medium prose-a:transition-colors
+
+              /* Strong and emphasis */
+              prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
+              prose-em:text-gray-800 dark:prose-em:text-gray-200
+
+              /* Inline code - Standout but readable */
+              prose-code:text-emerald-700 dark:prose-code:text-emerald-300
+              prose-code:bg-gray-100 dark:prose-code:bg-gray-800
+              prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md
+              prose-code:text-[15px] prose-code:font-mono prose-code:font-medium
               prose-code:before:content-[''] prose-code:after:content-['']
-              prose-pre:bg-gray-900 dark:prose-pre:bg-black prose-pre:text-gray-100 prose-pre:rounded-xl
+
+              /* Code blocks - Professional presentation */
+              prose-pre:bg-gray-950 dark:prose-pre:bg-black
+              prose-pre:text-gray-100 prose-pre:rounded-xl
               prose-pre:border prose-pre:border-gray-800 dark:prose-pre:border-gray-900
-              prose-ul:my-4 prose-ol:my-4
-              prose-li:text-gray-700 dark:prose-li:text-gray-300
-              prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:pl-6 prose-blockquote:py-1
-              prose-blockquote:italic prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400"
+              prose-pre:my-8 prose-pre:p-0 prose-pre:leading-relaxed
+              prose-pre:shadow-lg prose-pre:overflow-x-auto
+
+              /* Lists - Better spacing and markers */
+              prose-ul:my-6 prose-ul:space-y-3
+              prose-ol:my-6 prose-ol:space-y-3
+              prose-li:text-[17px] prose-li:text-gray-700 dark:prose-li:text-gray-300
+              prose-li:leading-[1.8] prose-li:my-2
+              prose-li:marker:text-emerald-600 dark:prose-li:marker:text-emerald-400
+
+              /* Nested lists */
+              prose-ul>li>ul:mt-3 prose-ul>li>ul:mb-2
+              prose-ol>li>ol:mt-3 prose-ol>li>ol:mb-2
+
+              /* Blockquotes - Elegant callouts */
+              prose-blockquote:border-l-4 prose-blockquote:border-emerald-500
+              prose-blockquote:bg-emerald-50 dark:prose-blockquote:bg-emerald-950/20
+              prose-blockquote:pl-6 prose-blockquote:pr-6 prose-blockquote:py-4 prose-blockquote:my-8
+              prose-blockquote:rounded-r-lg
+              prose-blockquote:not-italic prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300
+
+              /* Tables - Clean and readable */
+              prose-table:my-8 prose-table:w-full prose-table:border-collapse
+              prose-th:bg-gray-50 dark:prose-th:bg-gray-900
+              prose-th:text-left prose-th:p-3 prose-th:font-semibold
+              prose-th:border prose-th:border-gray-200 dark:prose-th:border-gray-800
+              prose-td:p-3 prose-td:border prose-td:border-gray-200 dark:prose-td:border-gray-800
+              prose-td:text-gray-700 dark:prose-td:text-gray-300
+
+              /* Horizontal rules */
+              prose-hr:my-12 prose-hr:border-gray-200 dark:prose-hr:border-gray-800
+
+              /* Images */
+              prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
+              prose-img:border prose-img:border-gray-200 dark:prose-img:border-gray-800
+
+              /* Figure captions */
+              prose-figcaption:text-center prose-figcaption:text-sm
+              prose-figcaption:text-gray-600 dark:prose-figcaption:text-gray-400
+              prose-figcaption:mt-3"
             >
               <MDXRemote
                 source={article.content}
