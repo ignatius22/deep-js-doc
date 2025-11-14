@@ -15,6 +15,8 @@ export interface ArticleMetadata {
   category?: string
   author?: string
   featured?: boolean
+  series?: string
+  seriesOrder?: number
 }
 
 export interface Article extends ArticleMetadata {
@@ -48,6 +50,8 @@ export function getArticleBySlug(slug: string): Article {
     category: data.category || 'Uncategorized',
     author: data.author || 'Deep JS Team',
     featured: data.featured || false,
+    series: data.series,
+    seriesOrder: data.seriesOrder,
     content,
   }
 }
@@ -87,6 +91,77 @@ export function getAllArticles(): Article[] {
   const articles = slugs
     .map(slug => getArticleBySlug(slug))
     .sort((a, b) => (a.date > b.date ? -1 : 1))
-  
+
   return articles
+}
+
+export function getRelatedArticles(slug: string, limit: number = 3): ArticleMetadata[] {
+  const currentArticle = getArticleBySlug(slug)
+  const allArticles = getAllArticles()
+
+  // Calculate similarity score based on shared tags and category
+  const articlesWithScore = allArticles
+    .filter(article => article.slug !== slug)
+    .map(article => {
+      let score = 0
+
+      // Same category gets high score
+      if (article.category === currentArticle.category) {
+        score += 10
+      }
+
+      // Shared tags
+      const sharedTags = article.tags?.filter(tag =>
+        currentArticle.tags?.includes(tag)
+      ) || []
+      score += sharedTags.length * 5
+
+      return { article, score }
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+
+  return articlesWithScore.map(item => {
+    const { content, ...metadata } = item.article
+    return metadata
+  })
+}
+
+export interface SeriesInfo {
+  seriesName: string
+  currentPart: number
+  totalParts: number
+  previousArticle?: ArticleMetadata
+  nextArticle?: ArticleMetadata
+  allArticles: ArticleMetadata[]
+}
+
+export function getSeriesInfo(slug: string): SeriesInfo | null {
+  const currentArticle = getArticleBySlug(slug)
+
+  if (!currentArticle.series || !currentArticle.seriesOrder) {
+    return null
+  }
+
+  const allArticles = getAllArticles()
+  const seriesArticles = allArticles
+    .filter(article => article.series === currentArticle.series)
+    .sort((a, b) => (a.seriesOrder || 0) - (b.seriesOrder || 0))
+
+  const currentIndex = seriesArticles.findIndex(article => article.slug === slug)
+  const previousArticle = currentIndex > 0 ? seriesArticles[currentIndex - 1] : undefined
+  const nextArticle = currentIndex < seriesArticles.length - 1 ? seriesArticles[currentIndex + 1] : undefined
+
+  return {
+    seriesName: currentArticle.series,
+    currentPart: currentArticle.seriesOrder,
+    totalParts: seriesArticles.length,
+    previousArticle: previousArticle ? { ...previousArticle, content: '' } as ArticleMetadata : undefined,
+    nextArticle: nextArticle ? { ...nextArticle, content: '' } as ArticleMetadata : undefined,
+    allArticles: seriesArticles.map(article => {
+      const { content, ...metadata } = article
+      return metadata
+    }),
+  }
 }

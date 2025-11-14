@@ -37,6 +37,19 @@ export default function Header() {
               Articles
             </Link>
             <Link
+              href="/bookmarks"
+              className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                isActive("/bookmarks")
+                  ? "text-emerald-600 dark:text-emerald-400"
+                  : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+              Bookmarks
+            </Link>
+            <Link
               href="/#newsletter"
               className={`text-sm font-medium transition-colors ${
                 isActive("/#newsletter")
@@ -92,6 +105,16 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Articles
+              </Link>
+              <Link
+                href="/bookmarks"
+                className="flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+                Bookmarks
               </Link>
               <Link
                 href="/#newsletter"
