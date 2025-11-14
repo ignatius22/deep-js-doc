@@ -1,44 +1,55 @@
 # Giscus Comments Setup Guide
 
-This site uses [Giscus](https://giscus.app/) for comments, which is powered by GitHub Discussions. Follow these steps to enable comments:
+This site uses [Giscus](https://giscus.app/) for comments, which is powered by GitHub Discussions.
 
-## Prerequisites
+## ✅ Current Configuration
 
-- Your repository must be public
-- The [giscus app](https://github.com/apps/giscus) must be installed on your repository
-- GitHub Discussions must be enabled in your repository
+The Giscus comments system is **already configured** and ready to use:
 
-## Setup Steps
+- **Repository**: `ignatius22/deep-js-doc`
+- **Repository ID**: `R_kgDOQVV0WQ`
+- **Category**: `General`
+- **Category ID**: `DIC_kwDOQVV0Wc4Cmv9l`
 
-### 1. Enable GitHub Discussions
+Comments will appear at the bottom of each article page.
 
-1. Go to your repository on GitHub
-2. Click on **Settings**
-3. Scroll down to **Features**
-4. Check the box for **Discussions**
+## Prerequisites (Already Met)
 
-### 2. Install Giscus App
+- ✅ Repository is public
+- ✅ The [giscus app](https://github.com/apps/giscus) is installed on your repository
+- ✅ GitHub Discussions are enabled in your repository
 
-1. Visit https://github.com/apps/giscus
-2. Click **Install**
-3. Select your repository
+## Configuration Details
 
-### 3. Get Your Configuration
-
-1. Visit https://giscus.app
-2. Fill in your repository in the format: `username/repo-name`
-3. Select **Discussion Category** (recommended: "Announcements" or create a new "Comments" category)
-4. Choose your preferred settings
-5. Copy the configuration values shown
-
-### 4. Update the Comments Component
-
-Open `components/Comments.tsx` and replace the placeholder values:
+The configuration is set in `components/Comments.tsx`:
 
 ```typescript
-script.setAttribute("data-repo", "your-username/your-repo-name");
-script.setAttribute("data-repo-id", "YOUR_REPO_ID");
-script.setAttribute("data-category", "Announcements");  // or your category
+script.setAttribute("data-repo", "ignatius22/deep-js-doc");
+script.setAttribute("data-repo-id", "R_kgDOQVV0WQ");
+script.setAttribute("data-category", "General");
+script.setAttribute("data-category-id", "DIC_kwDOQVV0Wc4Cmv9l");
+```
+
+## Updating Configuration (If Needed)
+
+If you need to change the discussion category or other settings:
+
+### 1. Visit Giscus Configuration
+
+1. Go to https://giscus.app
+2. Enter your repository: `ignatius22/deep-js-doc`
+3. Select your preferred **Discussion Category**
+4. Choose your preferred settings
+5. Copy the generated configuration values
+
+### 2. Update the Comments Component
+
+Open `components/Comments.tsx` and update the values:
+
+```typescript
+script.setAttribute("data-repo", "ignatius22/deep-js-doc");
+script.setAttribute("data-repo-id", "R_kgDOQVV0WQ");
+script.setAttribute("data-category", "YOUR_CATEGORY");  // e.g., "Announcements"
 script.setAttribute("data-category-id", "YOUR_CATEGORY_ID");
 ```
 

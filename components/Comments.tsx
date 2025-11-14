@@ -14,10 +14,10 @@ export default function Comments() {
 
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "[ENTER REPO HERE]"); // e.g., "username/repo-name"
-    script.setAttribute("data-repo-id", "[ENTER REPO ID HERE]");
-    script.setAttribute("data-category", "[ENTER CATEGORY NAME HERE]");
-    script.setAttribute("data-category-id", "[ENTER CATEGORY ID HERE]");
+    script.setAttribute("data-repo", "ignatius22/deep-js-doc");
+    script.setAttribute("data-repo-id", "R_kgDOQVV0WQ");
+    script.setAttribute("data-category", "General");
+    script.setAttribute("data-category-id", "DIC_kwDOQVV0Wc4Cmv9l");
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-strict", "0");
     script.setAttribute("data-reactions-enabled", "1");
