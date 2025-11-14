@@ -1,0 +1,269 @@
+---
+title: "Your Framework Knowledge Is Worthless (But Your JS Fundamentals Aren’t)"
+description: "Why JavaScript fundamentals matter more than React skills — and how 
+to learn them without abandoning the frameworks you need to use today. 
+Learn the difference between framework knowledge and lasting skills, 
+with practical steps to fill your knowledge gaps."
+date: "Oct 29, 2025"
+---
+Your React skills won’t save you when React is replaced.
+
+Your Vue expertise won’t matter when Vue falls out of favor.
+
+Your framework knowledge has an expiration date.
+
+JavaScript fundamentals don’t.
+
+## Before you close this tab
+
+Before you close this tab in anger, hear me out.
+
+I’m not saying frameworks are bad. I’m not saying you shouldn’t learn React.
+
+I’m saying that framework knowledge without JavaScript fundamentals is like knowing how to drive without understanding what happens when you press the brake pedal.
+
+It works. Until it doesn’t.
+
+I’ve seen brilliant developers rendered helpless by simple JavaScript problems because they learned React before they learned JavaScript. And I’ve seen average developers become exceptional because they mastered the fundamentals first.
+
+The difference isn’t talent. It’s foundation.
+
+## When framework knowledge fails you
+
+Here’s what happens when you prioritize frameworks over fundamentals:
+
+### The interview that goes sideways
+
+You walk into a technical interview confident. You’ve built React apps for two years. You know hooks inside and out. You can set up `Redux` in your sleep.
+
+Then the interviewer asks: “Explain how closures work.”
+
+You freeze. You’ve used closures thousands of times in React components, but you can’t explain what they are. The interview is over before it started.
+
+Companies don’t hire React developers. They hire JavaScript developers who know React.
+
+### The bug you can’t fix
+
+Your production app has a bug. State is updating incorrectly. You check the React docs. You Google the error. You try different hooks.
+
+Nothing works.
+
+The bug isn’t in React. It’s in your JavaScript. You’re mutating an object instead of creating a new one. A fundamental concept. But you never learned it because you jumped straight to frameworks.
+
+Three hours wasted because you don’t understand reference vs value.
+
+### The migration you can’t handle
+
+Your company decides to migrate from React to Vue. Or Vue to Svelte. Or anything to anything else.
+
+You panic. Your entire skillset is React-specific. You don’t know how to build without JSX. You don’t understand the patterns underneath.
+
+Meanwhile, the developer who knows JavaScript fundamentals? They adapt in days because they understand that all frameworks are just different ways to solve the same problems with the same language.
+
+### The code review that exposes you
+
+A senior developer reviews your pull request. They ask: “Why are you using `useCallback` here?”
+
+You answer: “Because the React docs say to use it for performance.”
+
+They ask: “But do you understand what it’s doing?”
+
+You don’t. You’re cargo-culting patterns without understanding the JavaScript concepts that make them work.
+
+## The JavaScript fundamentals that actually matter
+
+So what should you learn? What separates framework users from JavaScript developers?
+
+### Closures and scope
+
+Every hook in React uses closures. Every Vue composition function uses closures. Every callback you write uses closures.
+
+If you don’t understand closures, you don’t understand why your code works. You’re just copying patterns and hoping for the best.
+
+Learn: How closures capture variables. Why `let` vs `var` matters. What lexical scope means.
+
+### Prototypes and inheritance
+
+Classes in JavaScript are syntactic sugar over prototypes. Understanding prototypes means understanding how objects really work, how `this` binding happens, and why certain patterns exist.
+
+You don’t need to use prototypes daily. But you need to understand them to understand JavaScript.
+
+Learn: Prototype chains. How `new` works. What `Object.create()` does.
+
+### Async patterns
+
+Promises. `async`/`await`. The event loop. Microtasks vs macrotasks.
+
+Every modern framework deals with async code. If you don’t understand how JavaScript handles asynchrony, you’re debugging blind.
+
+Learn: How Promises work internally. Why `async`/`await` is syntactic sugar. What the event loop actually does.
+
+### References vs values
+
+Why does mutating state break React? Because React compares references, not values. Why does spreading an object work? Because it creates a new reference.
+
+This isn’t React knowledge. It’s JavaScript knowledge.
+
+Learn: How JavaScript passes variables. What immutability means. When to use spread operators vs when to deeply clone.
+
+### Array and object methods
+
+`map`, `filter`, `reduce`, `forEach`, `find`, `some`, `every`. `Object.keys`, `Object.entries`, `Object.assign`. Destructuring. Spread operators.
+
+These aren’t “nice to know.” They’re the building blocks of modern JavaScript. Frameworks assume you know them.
+
+Learn: What each method does. When to use which. How to chain them efficiently.
+
+### Higher-order functions
+
+Functions that take functions as arguments or return functions. This is fundamental to React (components are functions that return JSX), Vue (composables are higher-order functions), and every modern pattern.
+
+Learn: What makes a function “higher-order.” How to write them. Why they’re everywhere in modern code.
+
+
+## The paradox: fundamentals make you better at frameworks
+
+Here’s the ironic part: learning JavaScript fundamentals doesn’t make you slower at frameworks.
+
+It makes you faster.
+
+### You read the docs and actually understand them
+
+When React’s documentation talks about “stale closures,” you know exactly what that means. You don’t just memorize the fix — you understand the problem.
+
+When Vue mentions “reactive proxies,” you understand what proxies are and why Vue uses them.
+
+The docs stop being mysterious incantations. They become explanations of patterns you already understand.
+
+### You debug in minutes, not hours
+
+That weird bug where your `useEffect` runs twice? You understand React’s rendering cycle because you understand how JavaScript execution works.
+
+That state mutation issue? You know references vs values, so you spot it immediately.
+
+You don’t throw random fixes at the wall. You trace the problem because you understand the underlying language.
+
+### You write better framework code
+
+You know when to use `useMemo` because you understand JavaScript’s execution model and what “expensive computation” actually means.
+
+You know when NOT to use `useCallback` because you understand when function identity actually matters.
+
+You make informed decisions instead of cargo-culting patterns from Stack Overflow.
+
+### You learn new frameworks faster
+
+When Svelte comes along, you see: “Oh, it’s just reactive assignments using JavaScript Proxies.”
+
+When Solid appears, you think: “Fine-grained reactivity with closures and signals. I know these patterns.”
+
+Every new framework becomes “JavaScript I already know, packaged differently” instead of “completely new magic I need to learn from scratch.”
+
+### You become framework-agnostic
+
+You stop being “a React developer” and become “a JavaScript developer who uses React.”
+
+That distinction matters. One is replaceable when the framework changes. The other is valuable regardless of trends.
+
+
+## How to actually learn JavaScript fundamentals
+
+You’re convinced. Now what? How do you learn fundamentals without abandoning the framework work you need to do?
+
+### Don’t start over — fill the gaps
+
+You don’t need to stop using React and spend six months on vanilla JavaScript. That’s not realistic and honestly, not necessary.
+
+Instead, learn fundamentals through the lens of what you’re already building.
+
+Using `useState`? Take 30 minutes to understand closures. Using `useEffect`? Learn how the event loop works. Passing props? Understand references vs values.
+
+Fill gaps as you encounter them.
+
+### Rebuild what you use
+
+This is the approach I’ve been advocating: when you use a framework feature, rebuild a simplified version in vanilla JavaScript.
+
+Use `useState`? Build a 20-line version (like we did in my previous article).
+
+Use React Router? Build a simple vanilla JS router.
+
+Use Redux? Implement basic state management yourself.
+
+You don’t need production-ready code. You need understanding. And building forces understanding.
+
+### Read code, don’t just write it
+
+Open React’s source code. Find the `useState` implementation. You won’t understand everything, but you’ll understand more than you think.
+
+Read well-written vanilla JavaScript. Study how libraries like Lodash work. Look at how experienced developers structure code without frameworks.
+
+Reading teaches patterns. Patterns teach fundamentals.
+
+### Ask “why” instead of “how”
+
+Stop Googling “how to fix useState not updating.”
+
+Start asking “why does `useState` use closures” or “why does React compare by reference.”
+
+The “why” questions lead to fundamentals. The “how” questions lead to copy-paste solutions that don’t teach you anything.
+
+### Use the documentation differently
+
+Don’t just read the “Getting Started” guide. Read the “Advanced Concepts” or “Under the Hood” sections.
+
+Read the part about how React’s reconciliation works. Read about Vue’s reactivity system. Read Svelte’s compilation process.
+
+These sections assume you know JavaScript. They teach you how frameworks leverage fundamentals.
+
+### Build something without a framework
+
+Once a month, build something small in vanilla JavaScript. A todo app. A simple game. A calculator.
+
+No React. No Vue. Just JavaScript, HTML, and CSS.
+
+You’ll remember what JavaScript actually does and what the framework was doing for you. That awareness is powerful.
+
+
+## Framework knowledge is a multiplier, not a foundation
+
+Here’s the truth nobody tells beginners:
+
+Frameworks amplify what you already know. If you know JavaScript deeply, React makes you 10x more productive. If you only know React, you’re just productive at copying patterns.
+
+Framework knowledge is a multiplier. But multiplying zero still gives you zero.
+
+The developers who thrive aren’t the ones who know the most frameworks.
+
+They’re the ones who understand JavaScript so well that every framework becomes obvious. They see patterns instead of magic. They understand trade-offs instead of following trends.
+
+They’re not afraid when the framework changes because they know the language underneath never does.
+
+Your framework will be replaced. Maybe not this year. Maybe not in five years. But it will happen.
+
+Angular dominated, then React took over. Vue challenged React. Now Svelte and Solid are rising. In five years, something else will be the hot new thing.
+
+JavaScript will still be JavaScript.
+
+Closures will still work the same way. Prototypes will still exist. The event loop will still process tasks the same way. Arrays will still have `map` and `filter`.
+
+Learn the thing that doesn’t change. Master the foundation. Then frameworks become tools you choose, not crutches you depend on.
+
+That’s the difference between a developer with five years of experience and a developer with one year of experience repeated five times.
+
+Choose to build on bedrock, not sand.
+
+
+## Want more perspectives like this?
+
+I write about deep JavaScript concepts without the fluff — no metaphors, no follow-along tutorials, just clear explanations and strong opinions about what actually matters in web development.
+
+Follow me here on Medium for more.
+
+### Previous articles
+
+- JavaScript Event Loop Explained (Without the Coffee Shop Analogy)
+- I Rebuilt React’s `useState` in 20 Lines of Vanilla JS
+- Next up: Building a vanilla JavaScript router to understand client-side navigation without React Router.
+
+Disagree? Think I’m wrong? Drop a comment. Let’s debate.
